@@ -1,0 +1,170 @@
+/* =============================================
+   RETRO COMIC PORTFOLIO — GLOBAL STYLES
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ---- LIGHT THEME ---- */
+:root {
+  --bg:        #f5edd6;
+  --bg2:       #ede0c0;
+  --paper:     #faf4e1;
+  --ink:       #1e1209;
+  --ink2:      #3b2a1a;
+  --accent:    #c0392b;
+  --accent2:   #8b2323;
+  --olive:     #5a6b3a;
+  --sepia:     #7c5c3a;
+  --muted:     #a89070;
+  --border:    #2e1e0f;
+  --shadow:    4px 4px 0 #2e1e0f;
+  --shadow-lg: 6px 6px 0 #2e1e0f;
+  --panel-bg:  #fdf8ec;
+  --card-bg:   #fef9ee;
+  --badge-bg:  #e8d9b5;
+  --nav-bg:    #1e1209;
+  --nav-text:  #f5edd6;
+  --font-head: 'Bangers', cursive;
+  --font-body: 'Source Serif 4', serif;
+  --font-mono: 'Special Elite', cursive;
+  --font-label:'Oswald', sans-serif;
+  --radius: 4px;
+}
+
+/* ---- DARK THEME ---- */
+[data-theme="dark"] {
+  --bg:        #0e0b07;
+  --bg2:       #1a1208;
+  --paper:     #151009;
+  --ink:       #e8d9b0;
+  --ink2:      #c4a96b;
+  --accent:    #d44444;
+  --accent2:   #ff6655;
+  --olive:     #7a9a50;
+  --sepia:     #c0924a;
+  --muted:     #7a6040;
+  --border:    #c0924a;
+  --shadow:    4px 4px 0 #c0924a;
+  --shadow-lg: 6px 6px 0 #c0924a;
+  --panel-bg:  #1a1208;
+  --card-bg:   #1f1610;
+  --badge-bg:  #2e2010;
+  --nav-bg:    #0a0805;
+  --nav-text:  #e8d9b0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image: url('/halftone_texture.png');
+  background-repeat: repeat;
+  background-size: 400px;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--sepia); border-radius: 4px; }
+
+/* ---- SHARED SECTION ---- */
+.section-wrapper { padding: 5rem 2rem; }
+.section-inner   { max-width: 1200px; margin: 0 auto; }
+.section-inner-md{ max-width: 1000px; margin: 0 auto; }
+
+.section-header  { text-align: center; margin-bottom: 3rem; }
+.issue-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 4px;
+  color: var(--ink);
+  display: inline-block;
+  border-bottom: 5px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 3px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  background: none;
+}
+.btn:hover  { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+.btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--border); }
+
+.btn-primary  { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent2); }
+.btn-outline  { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+.btn-large    { font-size: 1rem; padding: 14px 30px; }
+.btn-full     { width: 100%; justify-content: center; margin-top: 0.5rem; }
+.btn-card     { background: var(--panel-bg); color: var(--ink); font-size: 0.8rem; padding: 7px 16px; }
+
+.btn-sfx {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  color: #ffe080;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+/* ---- PANEL FRAME ---- */
+.panel-frame {
+  border: 4px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.panel-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: var(--border);
+  color: #f5edd6;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+/* ---- ANIMATE IN ---- */
+@keyframes pop-in {
+  0%   { transform: scale(0.85) rotate(-2deg); opacity: 0; }
+  70%  { transform: scale(1.04) rotate(1deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.animate-in { animation: pop-in 0.4s cubic-bezier(.22,.68,0,1.2) forwards; }
+
+@media (max-width: 600px) {
+  .section-wrapper { padding: 3rem 1.25rem; }
+}

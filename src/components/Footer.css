@@ -1,0 +1,27 @@
+.footer {
+  background: var(--nav-bg);
+  border-top: 4px solid var(--accent);
+  color: var(--nav-text);
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+.footer-logo {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.footer p {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 4px 0;
+}
+.footer-sfx {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--sepia);
+  margin-top: 0.75rem !important;
+  letter-spacing: 2px;
+}
