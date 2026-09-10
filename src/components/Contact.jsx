@@ -47,8 +47,8 @@ export default function Contact() {
               </div>
             ))}
             <div className="contact-socials">
-              <a href="#" className="social-btn">GitHub</a>
-              <a href="#" className="social-btn">LinkedIn</a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub Profile">GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn Profile">LinkedIn</a>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ export default function Contact() {
               {loading ? 'Sending...' : 'Submit Message'}
             </button>
             {sent && (
-              <div className="form-success">
+              <div className="form-success" role="status" aria-live="polite">
                 ✅ Message sent! I'll get back to you soon.
               </div>
             )}

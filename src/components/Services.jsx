@@ -23,10 +23,13 @@ export default function Services() {
   const refs = useRef([]);
 
   useEffect(() => {
-    refs.current.forEach(el => { if (el) el.style.opacity = '0'; });
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('animate-in'); obs.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.style.opacity = '';
+          e.target.classList.add('animate-in');
+          obs.unobserve(e.target);
+        }
       });
     }, { threshold: 0.15 });
     refs.current.forEach(el => { if (el) obs.observe(el); });

@@ -8,7 +8,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -23,13 +23,22 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => obs.disconnect();
   }, []);
 
+  // Close mobile menu on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const links = ['hero','about','projects','skills','services','contact'];
   const labels = ['Home','About','Projects','Skills','Services','Contact'];
 
   return (
     <>
-      <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
-        <div className="nav-logo">⚡ <span>THE BUILDER</span></div>
+      <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Main Navigation">
+        <a href="#hero" className="nav-logo">⚡ <span>THE BUILDER</span></a>
         <ul className="nav-links">
           {links.map((l,i) => (
             <li key={l}>
@@ -40,17 +49,27 @@ export default function Navbar({ theme, toggleTheme }) {
           ))}
         </ul>
         <div className="nav-actions">
-          <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            title="Toggle theme"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
-          <button className="nav-hamburger" onClick={() => setMenuOpen(o => !o)}>
+          <button
+            className="nav-hamburger"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle mobile menu"
+          >
             {menuOpen ? '✕' : '☰'}
           </button>
         </div>
       </nav>
 
       {menuOpen && (
-        <div className="mobile-menu">
+        <div className="mobile-menu" onClick={() => setMenuOpen(false)}>
           <ul>
             {links.map((l,i) => (
               <li key={l}>

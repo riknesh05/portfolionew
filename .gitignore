@@ -1,0 +1,11 @@
+# Dependencies
+node_modules
+dist
+dist-ssr
+*.local
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
