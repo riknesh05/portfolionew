@@ -1,16 +1,4 @@
 {
   "projectId": "prj_kv7IcXtM7zIdJtXKXj1pxH5zfuML",
-  "orgId": "team_ZfwNve51fIeDCtamFJb8ktnn",
-  "projectName": "portfolionew",
-  "settings": {
-    "createdAt": 1776794514992,
-    "framework": "vite",
-    "devCommand": null,
-    "installCommand": "npm install",
-    "buildCommand": "npm run build",
-    "outputDirectory": "dist",
-    "rootDirectory": null,
-    "directoryListing": false,
-    "nodeVersion": "24.x"
-  }
+  "orgId": "team_ZfwNve51fIeDCtamFJb8ktnn"
 }

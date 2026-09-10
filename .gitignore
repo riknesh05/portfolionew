@@ -9,3 +9,8 @@ dist-ssr
 .vscode/
 .idea/
 .DS_Store
+
+# Vercel (keep project.json for linking but exclude build artifacts)
+.vercel/output
+.vercel/node
+src/.vercel
